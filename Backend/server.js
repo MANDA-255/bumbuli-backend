@@ -125,7 +125,9 @@ app.post('/api/contact', rateLimiter, validateContactInput, async (req, res) => 
           <div style="margin: 20px 0;">
             <p style="margin: 10px 0; color: black;"><strong>Name:</strong> ${name}</p>
             <p style="margin: 10px 0; color: black;"><strong>Email:</strong> ${email}</p>
-            <p style="margin: 10px 0;"><strong></strong><br>${message}</p>
+            <div style="margin: 20px 0; padding: 15px; background-color: #fff; border-left: 4px solid #007bff; border-radius: 3px;"
+            <p style="color: #666;">${message}</p>
+            </div>
             <p style="margin: 10px 0;"><strong>Type:</strong> ${isNewsletter ? 'Newsletter Subscription' : 'Contact Form'}</p>
             <p style="margin: 10px 0;"><strong>Time:</strong> ${new Date().toISOString()}</p>
           </div>
