@@ -32,18 +32,18 @@ function Contact() {
     switch (name) {
       case 'name':
         if (value.length < 3) {
-          return t.nameMinLength || 'Name must be at least 3 characters long';
+          return t.nameMinLength;
         }
         break;
       case 'email':
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
-          return t.invalidEmail || 'Please enter a valid email address';
+          return t.invalidEmail;
         }
         break;
       case 'message':
         if (value.length < 10) {
-          return t.messageMinLength || 'Message must be at least 10 characters long';
+          return t.messageMinLength;
         }
         break;
     }
@@ -87,7 +87,7 @@ function Contact() {
     // Validate all fields before submission
     if (!validateForm()) {
       setFormStatus({
-        message: t.fixFormErrors || 'Please fix the errors in the form',
+        message: t.fixFormErrors,
         isError: true
       });
       return;
@@ -98,7 +98,7 @@ function Contact() {
 
     if (!isServerAvailable) {
       setFormStatus({
-        message: t.serverUnavailable || 'Server not connected, try again later',
+        message: t.serverUnavailable,
         isError: true
       });
       setIsSubmitting(false);
@@ -123,7 +123,7 @@ function Contact() {
 
       const data = await response.json();
       setFormStatus({
-        message: t.messageSent || 'Message sent successfully!',
+        message: t.messageSentSuccess,
         isError: false
       });
       setFormData({ name: '', email: '', message: '' });
@@ -131,13 +131,13 @@ function Contact() {
       console.error('Submit error:', error);
       if (!navigator.onLine || error.message === 'Failed to fetch') {
         setFormStatus({
-          message: t.serverUnavailable || 'Server not connected, try again later',
+          message: t.serverUnavailable,
           isError: true
         });
         setIsServerAvailable(false);
       } else {
         setFormStatus({
-          message: t.messageNotSent || 'Message not sent successfully',
+          message: t.messageSentError,
           isError: true
         });
       }

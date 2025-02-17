@@ -28,10 +28,10 @@ function Footer() {
       });
 
       if (response.ok) {
-        setStatus('Message sent successfully');
+        setStatus(t.subscribeSucc);
         setEmail('');
       } else {
-        throw new Error('Message failed to send');
+        throw new Error(t.subscribeErr);
       }
       
       setTimeout(() => setStatus(''), 3000);
@@ -89,6 +89,13 @@ function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
+              {status === t.subscribeSucc && (
+                <p className="text-green-light text-sm mt-2">{status}</p>
+              )}
+              {status === t.subscribeErr && (
+                <p className="text-red-500 text-sm mt-2">{status}</p>
+              )}
+
               <button 
                 type="submit" 
                 className="btn w-full btn-secondary dark:bg-green-dark hover:dark:bg-green disabled:opacity-50 disabled:cursor-not-allowed"
@@ -96,12 +103,6 @@ function Footer() {
               >
                 {status === 'sending' ? t.sending : t.subscribe}
               </button>
-              {status === 'Message sent successfully' && (
-                <p className="text-green-light text-sm mt-2">{status}</p>
-              )}
-              {status === 'Message failed to send' && (
-                <p className="text-red-500 text-sm mt-2">{status}</p>
-              )}
             </form>
           </div>
         </div>

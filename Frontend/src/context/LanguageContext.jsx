@@ -113,9 +113,15 @@ export const translations = {
     festivalsDesc: "Celebrating diversity and bringing communities together.",
     
     // reCAPTCHA messages
-    recaptchaRequired: "Please complete the reCAPTCHA verification",
     messageSentSuccess: "Message sent successfully!",
     messageSentError: "Failed to send message. Please try again.",
+    serverUnavailable: "Server not connected, try again later",
+    fixFormErrors: "Please fix the errors in the form",
+    nameMinLength: "Name must be at least 3 characters long",
+    invalidEmail: "Please enter a valid email address",
+    messageMinLength: "Message must be at least 10 characters long",
+    subscribeSucc: "Thank you for subscribe!",
+    subscribeErr: "Failed to subscribe",
   },
   sw: {
     // Navigation
@@ -228,9 +234,15 @@ export const translations = {
     festivalsDesc: "Kusherehekea utofauti na kuleta jamii pamoja.",
     
     // reCAPTCHA messages
-    recaptchaRequired: "Tafadhali kamilisha uthibitisho wa reCAPTCHA",
     messageSentSuccess: "Ujumbe umetumwa kikamilifu!",
     messageSentError: "Imeshindwa kutuma ujumbe. Tafadhali jaribu tena.",
+    serverUnavailable: "Seva haijaunganishwa, jaribu tena baadaye",
+    fixFormErrors: "Tafadhali rekebisha makosa katika fomu",
+    nameMinLength: "Jina lazima liwe na urefu wa angalau herufi 3",
+    invalidEmail: "Tafadhali weka barua pepe sahihi",
+    messageMinLength: "Ujumbe lazima uwe na urefu wa angalau herufi 10",
+    subscribeSucc: "Asante kwa kujiandikisha!",
+    subscribeErr: "Imeshindwa kujisajili",
   }
 };
 
