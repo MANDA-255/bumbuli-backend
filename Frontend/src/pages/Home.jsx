@@ -127,14 +127,14 @@ function Home() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 z-30 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+            className="absolute left-4 z-30 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors hidden md:block"
             aria-label="Previous slide"
           >
             <i className="fas fa-chevron-left text-2xl"></i>
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 z-30 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+            className="absolute right-4 z-30 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors hidden md:block"
             aria-label="Next slide"
           >
             <i className="fas fa-chevron-right text-2xl"></i>
