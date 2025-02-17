@@ -114,7 +114,7 @@ app.post('/api/contact', rateLimiter, validateContactInput, async (req, res) => 
 
     // Prepare admin notification email
     const adminMailOptions = {
-      from: 'Bumbuli.app <issa.ngalawa01@gmail.com>',
+      from: 'Bumbuli Website <issa.ngalawa01@gmail.com>',
       to: 'ngalawaissa@gmail.com>',
       subject: isNewsletter ? 'New Newsletter Subscription' : `New Message from ${name}`,
       html: `
@@ -144,7 +144,7 @@ app.post('/api/contact', rateLimiter, validateContactInput, async (req, res) => 
 
     // Prepare auto-reply email
     const autoReplyMailOptions = {
-      from: 'Bumbuli.app <issa.ngalawa01@gmail.com>',
+      from: 'Bumbuli Website <issa.ngalawa01@gmail.com>',
       to: email,
       subject: isNewsletter ? 'Welcome to Our Newsletter!' : 'Thank You for Contacting Us',
       html: isNewsletter ? `
