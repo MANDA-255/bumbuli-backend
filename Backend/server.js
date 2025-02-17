@@ -119,7 +119,7 @@ app.post('/api/contact', rateLimiter, validateContactInput, async (req, res) => 
       subject: isNewsletter ? 'New Newsletter Subscription' : `New Message from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
-          <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+          <h2 style="color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
             ${isNewsletter ? 'New Newsletter Subscription' : 'New Contact Form Submission'}
           </h2>
           <div style="margin: 20px 0;">
