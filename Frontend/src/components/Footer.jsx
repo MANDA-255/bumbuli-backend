@@ -8,13 +8,46 @@ function Footer() {
   const t = translations[language];
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          return t.invalidEmail;
+        }
+        break;
+    }
+    return '';
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEmail(value);
+
+    // Validate on change and show error
+    const error = validateField(name, value);
+    setFieldErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
+  };
 
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    
+
+    // Validate email before submission
+    const emailError = validateField('email', email);
+    if (emailError) {
+      setStatus(emailError);
+      setTimeout(() => setStatus(''), 3000);
+      return;
+    }
+
     try {
       setStatus('sending');
-      
+
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: {
@@ -33,11 +66,11 @@ function Footer() {
       } else {
         throw new Error(t.subscribeErr);
       }
-      
+
       setTimeout(() => setStatus(''), 3000);
     } catch (error) {
       console.error('Error:', error);
-      setStatus('Message failed to send');
+      setStatus(t.subscribeErr);
       setTimeout(() => setStatus(''), 3000);
     }
   };
@@ -86,8 +119,12 @@ function Footer() {
                 required 
                 className="w-full px-4 py-2 rounded-lg text-text-base bg-white dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleInputChange}
               />
+
+              {fieldErrors.email && (
+                <p className="text-red-500 text-sm mt-2">{fieldErrors.email}</p>
+              )}
 
               {status === t.subscribeSucc && (
                 <p className="text-green-light text-sm mt-2">{status}</p>
