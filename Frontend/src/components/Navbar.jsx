@@ -55,7 +55,9 @@ function Navbar() {
         isScrolled ? 'top-0 py-4' : 'top-[32px] py-4'
       } ${visible ? 'block' : 'hidden'}`}>
         <div className="container flex justify-between items-center">
-          <a href="/" className="text-2xl font-bold text-green-dark dark:text-green-light">BUMBULI</a>
+          <a href="/" className="text-2xl font-bold text-green-dark dark:text-green-light">
+            <img src="https://i.postimg.cc/65KwBW0m/bumbuli-logo.png" alt="Bumbuli Logo" className="w-18 h-10" />
+          </a>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
